@@ -1,0 +1,110 @@
+import java.util.*;
+public class carDemo {
+
+	public static void main(String[] args) {
+		//--VARIABLE DECLARATION
+		Car car = null;
+		Owner owner = null;
+		Car car2 = null;
+		Owner owner2 = null;
+		String carName, make, model, ownerName, ownerType;
+		int yearModel, speed, mileage;
+
+		
+		Scanner kb = new Scanner(System.in);
+		
+		//---PROMPTS USER TO INPUT DATA FOR 2 CARS
+		for(int i = 1; i <= 2; i++) {
+			System.out.println("Please enter data for car " + i + ":");
+			System.out.print("Car Name: ");
+			carName = kb.nextLine();
+			
+			System.out.print("Year: ");
+			yearModel = kb.nextInt();
+			kb.nextLine();
+			
+			System.out.print("Car Make: ");
+			make = kb.nextLine();
+			
+			System.out.print("Car Model: ");
+			model = kb.nextLine();
+			
+			System.out.print("Car Mileage: ");
+			mileage = kb.nextInt();
+			kb.nextLine();
+			
+			System.out.print("Car Speed: ");
+			speed = kb.nextInt();
+			kb.nextLine();
+				if(speed < 0) {
+					System.out.println("Speed cannot be less than 0! Please enter the current car speed: ");
+					System.out.print("Car Speed: ");
+					speed = kb.nextInt();
+					kb.nextLine();
+				}
+			
+			System.out.print("Car owner name: ");
+			ownerName = kb.nextLine();
+			
+			System.out.print("Car owner type: ");
+			ownerType = kb.nextLine();
+		
+			if(i == 2) {
+				owner2 = new Owner(ownerName, ownerType);
+				car2 = new Car(carName, yearModel, make, model, mileage, speed, owner2);
+			} else {
+			owner = new Owner(ownerName, ownerType);
+			car = new Car(carName, yearModel, make, model, mileage, speed, owner);
+			
+			}
+								
+		} //end for loop
+		
+			System.out.print(car);
+			System.out.print(car2);
+			System.out.println("\n\nThe total mileage of both cars is " + Car.getTotalMileage());
+			
+			//---CAR 1 ACCELERATES TWICE---
+			car.accelerate();
+			System.out.println(car.getName() + " is going " + car.getSpeed() + " after the first acceleration.");
+			car.accelerate();
+			System.out.println(car.getName() + " is going " + car.getSpeed() + " after the second acceleration.");
+		
+			//---CAR 2 ACCELERATES TWICE---
+			car2.accelerate();
+			System.out.println(car2.getName() + " is going " + car2.getSpeed() + " after the first acceleration.");
+			car2.accelerate();
+			System.out.println(car2.getName() + " is going " + car2.getSpeed() + " after the second acceleration.");
+		
+			//---CAR 1 IS COMPARED AGAINST CAR 2---
+			System.out.println(car.compare(car2));
+			
+			//---CAR 1 BRAKES 4 TIMES---
+			car.brake();
+			System.out.println(car.getName() + " is going " + car.getSpeed() + " after the first brake.");
+			car.brake();
+			System.out.println(car.getName() + " is going " + car.getSpeed() + " after the second brake.");
+			car.brake();
+			System.out.println(car.getName() + " is going " + car.getSpeed() + " after the third brake.");
+			car.brake();
+			System.out.println(car.getName() + " is going " + car.getSpeed() + " after the fourth brake.");
+	
+			//---CAR 2 BRAKES 4 TIMES---
+			car2.brake();
+			System.out.println(car2.getName() + " is going " + car2.getSpeed() + " after the first brake.");
+			car2.brake();
+			System.out.println(car2.getName() + " is going " + car2.getSpeed() + " after the second brake.");
+			car2.brake();
+			System.out.println(car2.getName() + " is going " + car2.getSpeed() + " after the third brake.");
+			car2.brake();
+			System.out.println(car2.getName() + " is going " + car2.getSpeed() + " after the fourth brake.");
+			
+			//---CAR 1 IS COMPARED AGAINST CAR 2
+			System.out.println(car.compare(car2));
+			
+		
+		
+		
+	} //end main
+
+} //end carDemo
