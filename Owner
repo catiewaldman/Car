@@ -1,0 +1,20 @@
+public class Owner {
+
+	private String ownName;
+	private String ownType;
+
+    public Owner (String ownerName, String ownerType) {
+    	ownName = ownerName;
+    	ownType = ownerType;
+    }
+    
+    public String getOwnType() {
+    	return ownType;
+    }
+  
+    public String toString() {
+    	return ownName + " is the owner of the car and is a " + ownType + " driver.";
+    }
+    
+    
+}//end Owner class
