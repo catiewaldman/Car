@@ -1,0 +1,134 @@
+class Car{
+	
+	//---INSTANCE VARIABLES---
+	private String carName;
+	private int yearModel;
+	private String make;
+	private String model;
+	private int speed;
+	private int mileage;
+	private Owner carOwner;
+	private static int totalMileage;
+	
+	
+	//---CAR CONSTRUCTOR---
+	public Car(String n, int y, String ma, String m, int ml, int s, Owner o) {
+		carName = n;
+		yearModel = y;
+		make = ma;
+		model = m;
+		speed = s;
+		mileage = ml;
+		carOwner = o;
+		totalMileage += ml;
+	}
+	
+	//---MUTATOR & ACCESSOR METHODS---
+	
+	public void setName(String n) {
+		carName = n;
+	}
+	public String getName() {
+		return carName;
+	}
+	
+	public void setYearModel(int y) {
+		yearModel = y;
+	}
+	public int getYear() {
+		return yearModel;
+	}
+	
+	public void setMake(String ma) {
+		make = ma;
+	}
+	public String getMake() {
+		return make;
+	}
+	
+	public void setModel(String m) {
+		model = m;
+	}
+	public String getModel() {
+		return model;
+	}
+	
+	public void setSpeed(int s) {
+		speed = s;
+	}
+	public int getSpeed() {
+		return speed;
+	}
+	
+	public void setMileage(int ml) {
+		mileage = ml;
+	}
+	public int getMileage() {
+		return mileage;
+	}
+	
+	public void setOwnerName(Owner n) {
+		carOwner = n;
+	}
+	public Owner getOwnerName() {
+		return carOwner;
+	}
+	
+	//---ACCELERATE()---
+	
+	public void accelerate() {
+		if(carOwner.getOwnType().equalsIgnoreCase("rash")) {
+			speed += 10;
+		} else {
+			speed += 5;
+		}
+	}
+	//---BRAKE---
+	
+	public void brake() {
+		if(speed == 0) {
+			System.out.println("You are already stopped!");
+		} else {
+			speed -= 5;
+		}//end if-else statement
+	}
+	
+	//---COMPARE()---
+	
+	public String compare(Car car2) {
+		if(this.speed < car2.speed) return this.carName + " is moving slower than " + car2.carName;
+		if(this.speed > car2.speed) return this.carName + " is moving faster than " + car2.carName;
+		return this.carName + " and " + car2.carName + " are moving at the same speed.";
+	}
+	
+	//---TOSTRING()---
+	
+	public String toString() {
+		String response = "";
+		response += "\n\n"+ carName +" is a " + yearModel + " " + make + " " + model+ ".";
+		response += "\nThe current mileage is " + mileage + " and current speed is " + speed;
+		response += ".\n" + carOwner.toString();
+		return response;
+	}
+	
+	//---TOTALMILEAGE---
+	
+	public static int getTotalMileage() {
+		return totalMileage;
+	}
+	
+}//---END CLASS CAR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
